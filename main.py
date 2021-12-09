@@ -11,7 +11,7 @@ dict_csv = {}
 with open('anime.csv', 'r', encoding='utf-8') as file:
     reader = csv.reader(file)
     headers = next(reader)
-    for row in reader: #алгоритм рекомендации конкретного аниме
+    for row in reader: #Алгоритм рекомендации конкретного аниме.
         cur_tags = list(row[tag_search('Tags', headers)].split(", "))
         rate_csv = row[tag_search('Rating Score', headers)]
         if rate_csv == 'Unknown' or rate_csv == 'Rating Score':
@@ -66,5 +66,6 @@ for key, value in sorted_dict.items():
                 img_file.close()
             f.write(ans + '\n')
             break
-    if i == 100: #изменять значние, для размера подборки
+    if i == 100: #Изменять значение, для размера подборки.
         break
+    print('Всё готово. Ответ находится в answer.txt. Все изображения так же находятся в корневой папке программы(lab2).')

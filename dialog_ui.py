@@ -1,12 +1,9 @@
 def dialog():
     print("Какие жанрsы вас интересуют? Пишите, пожалуйста, жанры через запятую на английском языке. Нажмите ENTER, если хотите пропустить.")
     tags = list(input().split(', '))
-    print("Какая минимальная оценка аниме вас устроит по десятибальной шкале? Нажмите ENTER, если хотите пропустить.")
+    print("Какая минимальная оценка аниме вас устроит по пятибальной шкале? Нажмите ENTER, если хотите пропустить.")
     rating = input()
-    if rating == '':
-        rating = 0
-    else:
-        rating = float(rating)
+    rating = float(rating) if rating else 0
     print("Какое количество отзывов вас устроит? Нажмите ENTER, если хотите пропустить.")
     votes = input()
     if votes == '':
@@ -23,7 +20,5 @@ def tag_search(cur, headers):
     head_s = headers.index(cur)
     return head_s
 
-def results(cur_tags,tags, cur_rs, votes, anime_type, fin):
-    x1 = len(list(set(cur_tags) & set(tags)))
-    x2 = cur_rs + votes + anime_type + fin
-    return x1+x2
+def tags_coincidence(cur_tags, tags):
+    return len(list(set(cur_tags) & set(tags)))

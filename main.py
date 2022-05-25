@@ -27,6 +27,8 @@ with open('anime.csv', 'r', encoding='utf-8') as file:
     headers = next(reader)
     for row in reader: #Алгоритм рекомендации конкретного аниме.
         res = 0
+        wow = 123
+        zxc = 111
         cur_tags = list(row[tag_search('Tags', headers)].split(", "))
         rate_csv = row[tag_search('Rating Score', headers)]
         res += int(csv_assign(rate_csv, 'Rating Score', rating))
